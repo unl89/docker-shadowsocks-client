@@ -30,7 +30,7 @@ socket-timeout 300\n\
 " > /etc/privoxy/config && \
   echo -e "#!/bin/sh\n\
 su -s /bin/sh privoxy /bin/sh -c '/usr/sbin/privoxy /etc/privoxy/config'\n\
-exec /usr/bin/ss-local -a nobody -l 1080 \"\$@\"\n\
+exec /usr/bin/ss-local -a nobody -b 0.0.0.0 -l 1080 \"\$@\"\n\
 " > /docker-entrypoint.sh && \
 chmod +x /docker-entrypoint.sh
 
